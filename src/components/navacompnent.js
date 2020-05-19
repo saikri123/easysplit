@@ -8,7 +8,7 @@ function Navcomponent()
                     <a className='navbar-brand' href='#'>Easy Split</a>
                     <ul className='navbar-nav'>
                         <li className='nav-item'>
-                            <Link to='/welcome'>HOME</Link>
+                            <Link to='/'>HOME</Link>
                         </li>
                     </ul>
                 </nav>

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Dashboard from './dashboard';
+import {Link} from 'react-router-dom'
 class Signin extends Component {
     state = {
         email: '',
@@ -17,7 +17,8 @@ class Signin extends Component {
     {
         if(this.state.email=='vagi2chaitu@gmail.com' && this.state.password=='123')
         {
-           //<Dashboard/>
+            alert('correct');
+           
         }
     }
     render() {
@@ -35,8 +36,7 @@ class Signin extends Component {
                             <td><input type='password' value={this.state.password} onChange={this.handlepassword} /></td>
                         </tr>
                     </table><br/>
-                    <input type='submit' value='login'/>
-
+                    <Link to='/dashboard'><input type='submit' value='login'/></Link>
 
                 </form>
             </div>
