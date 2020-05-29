@@ -26,12 +26,12 @@
 }
 .form
 {
-  display: flex;
+  height: 100vh;
   width: 100vw;
-  height:100vh;
+  display: flex;
   justify-content: center;
-  justify-items:center;
   align-content: center;
+  justify-items: center;
   align-items: center;
 }
 .table
@@ -48,7 +48,9 @@
   border: 2px solid black;
   display:block;
   padding: 15px;
-  margin-bottom: 425px;
+  margin-left: 10px;
+  height:35vh ;
+  
 }
 
 .col-xs-4
@@ -81,4 +83,40 @@
 #expense.show
 {
   display:flex;
+  border: 2px solid white;
+}
+.navclass
+{
+  background-color: seagreen;
+  color: white;
+  text-align: left;
+}
+.expensediv
+{
+  height:40vh;
+  width: 25vw;
+  background-color: white;
+}
+.xcontent
+{
+  text-align: left;
+  margin-left: 10px;
+}
+.navbeside
+{
+  border:2px solid black;
+  width:15vw;
+  height: 35vh;
+
+}
+.test
+{
+  float:left;
+}
+.logo
+{
+  display: flex;
+  align-items: flex-end;
+  padding:10px;
+  
 }

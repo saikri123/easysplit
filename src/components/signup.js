@@ -42,7 +42,7 @@ class Signup extends Component {
        // let passowrdError='';
         let retypeError='';
         var nameregex=/^([a-z A-z]{3,25})$/;
-        var emailregx=/^([a-z A-z 0-9\.-]+)@([a-z]+).([a-z]{2,20})(.[a-z]{2,10})?$/;
+        var emailregx=/^([a-z A-z 0-9 .-]+)@([a-z]+).([a-z]{2,20})(.[a-z]{2,10})?$/;
         if(!emailregx.test(this.state.email))
         {
             emailError='inavllid';
@@ -55,7 +55,7 @@ class Signup extends Component {
         this.setState({emailError});
         if(usernameError)
         this.setState({usernameError});
-        if(this.state.password!=this.state.retype)
+        if(this.state.password!==this.state.retype)
         {
             retypeError='invalid';
         }

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import {Link} from 'react-router-dom'
+import { useHistory } from "react-router-dom";
+
 class Signin extends Component {
     state = {
         email: '',
@@ -15,9 +16,28 @@ class Signin extends Component {
     }
     validate=()=>
     {
-        if(this.state.email=='vagi2chaitu@gmail.com' && this.state.password=='123')
+       toString( this.state.email);
+        toString(this.state.password);
+        if(this.state.email==='chaithanya' && this.state.password==='123')
         {
-            alert('correct');
+            alert('sucessfull');
+            let history=useHistory();
+            history.push("/dashboard");
+            
+            
+            fetch('http://localhost:4000',{
+                method:'POST',
+                body:
+                {
+                   email:this.state.email,
+                   password:this.state.password 
+                }
+            })
+            .then(res=>res.json())
+            .then(res=>{
+                console.log('res');
+            })
+            
            
         }
     }
@@ -25,6 +45,7 @@ class Signin extends Component {
 
         return (
             <div className='form'>
+                
                 <form onSubmit={this.validate}>
                     <table>
                         <tr>
@@ -36,7 +57,7 @@ class Signin extends Component {
                             <td><input type='password' value={this.state.password} onChange={this.handlepassword} /></td>
                         </tr>
                     </table><br/>
-                    <Link to='/dashboard'><input type='submit' value='login'/></Link>
+                    <input type='submit' value='login'/>
 
                 </form>
             </div>
