@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Nav from './nav'
+const fs=require('fs');
 class Dashboard extends Component {
 
     state = {
@@ -33,6 +34,9 @@ class Dashboard extends Component {
     }
     saveindb = (event) => {
         event.preventDefault();
+        var data=10
+        var ele=JSON.stringify(data);
+        fs.writeFile('store.json',ele)
         /*let db = [];
         let store = {
             name: this.state.wya,
@@ -41,9 +45,12 @@ class Dashboard extends Component {
         }*/
 
     }
+  
+    
 
     render() {
         return (
+            
             <div className='form'>
                 <div className='test'> <Nav/> </div>
                 <div className='navembed'>    

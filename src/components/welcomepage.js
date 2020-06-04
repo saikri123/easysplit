@@ -5,10 +5,10 @@ class Welcome extends Component {
     render() {
         return (
 
-                <div class='body'>
+                <div className='body'>
                 
                 
-                    <div class='btns'>
+                    <div className='btns'>
                         <button className='btn btn-warning signin' ><Link to='/signin'>signin</Link>  </button>
                         <button className='btn btn-danger signup' ><Link to='/signup'>signup</Link></button>
                     </div>

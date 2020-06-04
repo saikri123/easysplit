@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
-import { useHistory } from "react-router-dom";
+import { Redirect } from "react-router-dom";
+//import Dashboard from '/dashboard';
 
 class Signin extends Component {
+  
     state = {
         email: '',
         password: ''
@@ -14,50 +16,64 @@ class Signin extends Component {
         const password = event.target.value;
         this.setState({ password })
     }
-    validate=()=>
-    {
-       toString( this.state.email);
-        toString(this.state.password);
-        if(this.state.email==='chaithanya' && this.state.password==='123')
-        {
-            alert('sucessfull');
-            let history=useHistory();
-            history.push("/dashboard");
-            
-            
-            fetch('http://localhost:4000',{
-                method:'POST',
-                body:
-                {
-                   email:this.state.email,
-                   password:this.state.password 
-                }
-            })
-            .then(res=>res.json())
-            .then(res=>{
-                console.log('res');
-            })
-            
+    validate = (event) => {
+        event.preventDefault()
+        
+        var data={
+            email1:'chaithnaya',
+            password1:'123'
            
         }
+        fetch('/signin',{
+            body:JSON>stringify(data)
+        })
+        .then(function(res)
+        {
+           res.json()
+        })
+        .then(function(res){
+            console.log('res',res);
+        })
+
+        // fetch('/signin',{
+        //     method:'POST',
+        //     headers:{
+        //         'Content-Type' : 'application/json'
+        //     },
+        //     body:JSON.stringify(data),
+        //     mode:'no-cors'
+        // })
+        // .then(res=>res.json())
+        // .then(res=>
+        //     {
+        //         console.log('res',res);
+        //     })
+       
+        if (this.state.email === 'chaithanya' && this.state.password === '123') {
+            alert('sucessfull');
+          window.location.pathname='/dashboard';
+
+        }
+
+
     }
     render() {
 
         return (
             <div className='form'>
-                
-                <form onSubmit={this.validate}>
+
+                <form action="/signin" method="POST" onSubmit={this.validate}>
                     <table>
                         <tr>
                             <td><label>email</label></td>
-                                <td><input type='text' vlaue={this.state.email} onChange={this.handleemail} /></td>
+                            <td><input type='text' vlaue={this.state.email} onChange={this.handleemail} /></td>
                         </tr>
-                         <tr>
+                        <tr>
                             <td><label>password</label></td>
                             <td><input type='password' value={this.state.password} onChange={this.handlepassword} /></td>
                         </tr>
-                    </table><br/>
-                    <input type='submit' value='login'/>
+                    </table><br />
+                    <input type='submit' value='login' />
 
                 </form>
             </div>
